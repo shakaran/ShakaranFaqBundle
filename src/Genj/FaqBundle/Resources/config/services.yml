@@ -9,15 +9,18 @@ parameters:
 services:
     genj_faq.entity.question_repository:
         class:     '%genj_faq.entity.question_repository.class%'
+        public: true
         factory:   ['@doctrine.orm.entity_manager', getRepository]
         arguments: ['%genj_faq.entity.question.class%']
 
     genj_faq.entity.category_repository:
         class:     '%genj_faq.entity.category_repository.class%'
+        public: true
         factory:   ['@doctrine.orm.entity_manager', getRepository]
         arguments: ['%genj_faq.entity.category.class%']
 
     genj_faq.entity.search_repository:
         class:     '%genj_faq.entity.search_repository.class%'
+        public: true
         factory:   ['@doctrine.orm.entity_manager', getRepository]
         arguments: ['%genj_faq.entity.search.class%']
