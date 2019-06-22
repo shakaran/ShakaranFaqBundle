@@ -1,5 +1,5 @@
 {
-    "name":        "genj/faq-bundle",
+    "name":        "shakaran/faq-bundle",
     "type":        "symfony-bundle",
     "description": "Symfony FAQ bundle",
     "keywords":    ["php", "symfony", "bundle", "symfony-bundle", "genj", "faq"],
