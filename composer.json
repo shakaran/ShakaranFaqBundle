@@ -1,23 +1,32 @@
 {
     "name":        "shakaran/faq-bundle",
     "type":        "symfony-bundle",
-    "description": "Symfony FAQ bundle",
-    "keywords":    ["php", "symfony", "bundle", "symfony-bundle", "genj", "faq"],
+    "description": "Symfony 4.x FAQ bundle",
+    "keywords":    ["php", "symfony", "bundle", "symfony-bundle", "genj", "faq", "sf4", "symfony4", "shakaran"],
     "homepage":    "http://github.com/genj/GenjFaqBundle",
     "license":     "MIT",
 
     "authors": [
+	{
+            "name" : "Ángel Guzmán Maeso",
+            "email" : "angel@guzmanmaeso.com",
+            "homepage" : "https://shakaran.net/blog",
+            "role" : "Current developer and new author"
+        },
         {
             "name":  "Choong Wei Tjeng",
-            "email": "choong@bixels.nl"
+            "email": "choong@bixels.nl",
+	    "role": "Old original author", 
         },
         {
             "name":  "Nico Kaag",
-            "email": "nico.kaag@genj.nl"
+            "email": "nico.kaag@genj.nl",
+	    "role": "Old original author",
         },
         {
             "name":  "Susan Lau",
-            "email": "susan.lau@genj.nl"
+            "email": "susan.lau@genj.nl",
+	    "role": "Old original author",
         }
     ],
 
