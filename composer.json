@@ -2,8 +2,8 @@
     "name":        "shakaran/faq-bundle",
     "type":        "symfony-bundle",
     "description": "Symfony 4.x FAQ bundle",
-    "keywords":    ["php", "symfony", "bundle", "symfony-bundle", "genj", "faq", "sf4", "symfony4", "shakaran"],
-    "homepage":    "http://github.com/genj/GenjFaqBundle",
+    "keywords":    ["php", "symfony", "bundle", "symfony-bundle", "shakaran", "faq", "sf4", "symfony4", "shakaran"],
+    "homepage":    "http://github.com/shakaran/ShakaranFaqBundle",
     "license":     "MIT",
 
     "authors": [
@@ -20,12 +20,12 @@
         },
         {
             "name":  "Nico Kaag",
-            "email": "nico.kaag@genj.nl",
+            "email": "nico.kaag@shakaran.nl",
 	    "role": "Old original author"
         },
         {
             "name":  "Susan Lau",
-            "email": "susan.lau@genj.nl",
+            "email": "susan.lau@shakaran.nl",
 	    "role": "Old original author"
         }
     ],

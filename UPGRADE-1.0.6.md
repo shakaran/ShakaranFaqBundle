@@ -8,4 +8,4 @@ this is just duplicated code from the `indexAction`
 
 ## Route
  
-`route genj_faq` got renamed to `genj_faq_index`
+`route shakaran_faq` got renamed to `shakaran_faq_index`

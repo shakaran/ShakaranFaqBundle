@@ -1,6 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\Entity;
+namespace Shakaran\FaqBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,13 +10,13 @@ use Doctrine\Common\Collections\Criteria;
  * Class Category
  *
  * @ORM\MappedSuperclass
- * @ORM\Entity(repositoryClass="Genj\FaqBundle\Entity\CategoryRepository")
+ * @ORM\Entity(repositoryClass="Shakaran\FaqBundle\Entity\CategoryRepository")
  * @ORM\Table(
- *     name="genj_faq_category",
+ *     name="shakaran_faq_category",
  *     indexes={@ORM\Index(name="is_active_idx", columns={"is_active"})}
  * )
  *
- * @package Genj\FaqBundle\Entity
+ * @package Shakaran\FaqBundle\Entity
  */
 class Category
 {
@@ -312,7 +312,7 @@ class Category
      */
     public function getRouteName()
     {
-        return 'genj_faq_category_show';
+        return 'shakaran_faq_category_show';
     }
 
     /**

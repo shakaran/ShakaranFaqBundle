@@ -1,6 +1,8 @@
-# GenjFaqBundle
+# ShakaranFaqBundle
 
-The GenjFaqBundle allows you to display a FAQ on your website, with the questions being grouped in categories. Features:
+The ShakaranFaqBundle is a fork of GenjFaqBundle which include support for Symfony 4.3+.
+
+It allows you to display a FAQ on your website, with the questions being grouped in categories. Features:
 
 * Questions are grouped into Categories
 * Categories can be deactivated
@@ -25,7 +27,7 @@ Add this to your composer.json:
     "require": {
         ...
         "gedmo/doctrine-extensions": "~2.3,<3.0",
-        "genj/faq-bundle": "dev-master"
+        "shakaran/faq-bundle": "dev-master"
         ...
 ```
 
@@ -38,7 +40,7 @@ class AppKernel extends Kernel
     public function registerBundles() {
         $bundles = array(
             ...
-            new Genj\FaqBundle\GenjFaqBundle()
+            new Shakaran\FaqBundle\ShakaranFaqBundle()
             ...
 ```
 
@@ -46,8 +48,8 @@ Add the routing rules to your routing.yml:
 
 ```
 # app/config/routing.yml
-genj_faq:
-    resource: "@GenjFaqBundle/Resources/config/routing.yml"
+shakaran_faq:
+    resource: "@ShakaranFaqBundle/Resources/config/routing.yml"
 ```
 
 Finally, update your database schema:
@@ -68,7 +70,7 @@ if you did add at least one category in your DB.
 If you use the doctrine-fixtures bundle, you can load fixtures like this:
 
 ```
-php bin/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/src/Genj/FaqBundle/DataFixtures/
+php bin/console doctrine:fixtures:load --fixtures=vendor/shakaran/faq-bundle/src/Shakaran/FaqBundle/DataFixtures/
 ```
 
 
@@ -77,7 +79,7 @@ php bin/console doctrine:fixtures:load --fixtures=vendor/genj/faq-bundle/src/Gen
 You can optionally include the configuration below into your config.yml:
 
 ```
-genj_faq:
+shakaran_faq:
     select_first_category_by_default: false
     select_first_question_by_default: false
 ```
@@ -95,7 +97,7 @@ gedmo/doctrine-extensions (see https://github.com/Atlantic18/DoctrineExtensions)
 As soon you want more than the default category listing with all questions + answers you
 shouldn't import the bundle route, but copy only the part you are actualy using.
 
-e.g. if you want single pages for each question use the ```genj_faq_question_show``` route.
+e.g. if you want single pages for each question use the ```shakaran_faq_question_show``` route.
 
 For further examples see https://github.com/genj/faq-demo
 

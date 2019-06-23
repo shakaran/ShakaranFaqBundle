@@ -1,6 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\Entity;
+namespace Shakaran\FaqBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -9,13 +9,13 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class Search
  *
  * @ORM\MappedSuperclass
- * @ORM\Entity(repositoryClass="Genj\FaqBundle\Entity\SearchRepository")
+ * @ORM\Entity(repositoryClass="Shakaran\FaqBundle\Entity\SearchRepository")
  * @ORM\Table(
- *     name="genj_faq_search",
+ *     name="shakaran_faq_search",
  *     indexes={@ORM\Index(name="search_count_idx", columns={"search_count"})}
  * )
  *
- * @package Genj\FaqBundle\Entity
+ * @package Shakaran\FaqBundle\Entity
  */
 class Search
 {
@@ -201,7 +201,7 @@ class Search
      */
     public function getRouteName()
     {
-        return 'genj_faq_search_show';
+        return 'shakaran_faq_search_show';
     }
 
     /**

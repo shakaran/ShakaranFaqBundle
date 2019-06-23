@@ -30,7 +30,7 @@ class CategoryTest extends \PHPUnit_Framework_TestCase
         $category  = new Category();
         $routeName = $category->getRouteName();
 
-        $this->assertSame('genj_faq', $routeName);
+        $this->assertSame('shakaran_faq', $routeName);
     }
 
     /**

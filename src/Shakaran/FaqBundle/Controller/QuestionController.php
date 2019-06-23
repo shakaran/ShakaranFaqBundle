@@ -1,6 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\Controller;
+namespace Shakaran\FaqBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class QuestionController
  *
- * @package Genj\FaqBundle\Controller
+ * @package Shakaran\FaqBundle\Controller
  */
 class QuestionController extends Controller
 {
@@ -31,7 +31,7 @@ class QuestionController extends Controller
         }
 
         return $this->render(
-            'GenjFaqBundle:Question:show.html.twig',
+            'ShakaranFaqBundle:Question:show.html.twig',
             array(
                 'question' => $question
             )
@@ -50,7 +50,7 @@ class QuestionController extends Controller
         $questions = $this->getQuestionRepository()->retrieveMostRecent($max);
 
         return $this->render(
-            'GenjFaqBundle:Question:list_most_recent.html.twig',
+            'ShakaranFaqBundle:Question:list_most_recent.html.twig',
             array(
                 'questions' => $questions,
                 'max'       => $max
@@ -72,7 +72,7 @@ class QuestionController extends Controller
         $questions = $this->getQuestionRepository()->retrieveByQuery($query, $max, $whereFields);
 
         return $this->render(
-            'GenjFaqBundle:Question:list_by_query.html.twig',
+            'ShakaranFaqBundle:Question:list_by_query.html.twig',
             array(
                 'questions' => $questions,
                 'max'       => $max
@@ -98,7 +98,7 @@ class QuestionController extends Controller
         }
 
         return $this->render(
-            'GenjFaqBundle:Question:teaser_by_id_or_object.html.twig', array(
+            'ShakaranFaqBundle:Question:teaser_by_id_or_object.html.twig', array(
                 'question' => $question,
                 'style'    => $style,
                 'source'   => $source,
@@ -108,10 +108,10 @@ class QuestionController extends Controller
     }
 
     /**
-     * @return \Genj\FaqBundle\Entity\QuestionRepository
+     * @return \Shakaran\FaqBundle\Entity\QuestionRepository
      */
     protected function getQuestionRepository()
     {
-        return $this->container->get('genj_faq.entity.question_repository');
+        return $this->container->get('shakaran_faq.entity.question_repository');
     }
 }

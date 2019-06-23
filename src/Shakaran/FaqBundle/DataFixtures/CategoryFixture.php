@@ -1,19 +1,19 @@
 <?php
 
-namespace Genj\FaqBundle\DataFixtures;
+namespace Shakaran\FaqBundle\DataFixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Genj\FaqBundle\Entity\Category;
+use Shakaran\FaqBundle\Entity\Category;
 
 
 /**
  * Class CategoryFixture
  *
- * @package Genj\FaqBundle\Tests\Fixtures
+ * @package Shakaran\FaqBundle\Tests\Fixtures
  */
 class CategoryFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {

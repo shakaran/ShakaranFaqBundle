@@ -1,13 +1,13 @@
 <?php
 
-namespace Genj\FaqBundle\Controller;
+namespace Shakaran\FaqBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class CategoryController
  *
- * @package Genj\FaqBundle\Controller
+ * @package Shakaran\FaqBundle\Controller
  */
 class CategoryController extends Controller
 {
@@ -27,7 +27,7 @@ class CategoryController extends Controller
         }
 
         return $this->render(
-            'GenjFaqBundle:Category:show.html.twig',
+            'ShakaranFaqBundle:Category:show.html.twig',
             array(
                 'category' => $category
             )
@@ -44,7 +44,7 @@ class CategoryController extends Controller
         $categories = $this->getCategoryRepository()->retrieveActive();
 
         return $this->render(
-            'GenjFaqBundle:Category:list_active.html.twig',
+            'ShakaranFaqBundle:Category:list_active.html.twig',
             array(
                 'categories' => $categories
             )
@@ -52,10 +52,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * @return \Genj\FaqBundle\Entity\CategoryRepository
+     * @return \Shakaran\FaqBundle\Entity\CategoryRepository
      */
     protected function getCategoryRepository()
     {
-        return $this->container->get('genj_faq.entity.category_repository');
+        return $this->container->get('shakaran_faq.entity.category_repository');
     }
 }

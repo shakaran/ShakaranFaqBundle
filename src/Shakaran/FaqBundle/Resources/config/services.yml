@@ -1,0 +1,26 @@
+parameters:
+    shakaran_faq.entity.question.class: Shakaran\FaqBundle\Entity\Question
+    shakaran_faq.entity.category.class: Shakaran\FaqBundle\Entity\Category
+    shakaran_faq.entity.search.class: Shakaran\FaqBundle\Entity\Search
+    shakaran_faq.entity.question_repository.class: Shakaran\FaqBundle\Entity\QuestionRepository
+    shakaran_faq.entity.category_repository.class: Shakaran\FaqBundle\Entity\CategoryRepository
+    shakaran_faq.entity.search_repository.class: Shakaran\FaqBundle\Entity\SearchRepository
+
+services:
+    shakaran_faq.entity.question_repository:
+        class:     '%shakaran_faq.entity.question_repository.class%'
+        public: true
+        factory:   ['@doctrine.orm.entity_manager', getRepository]
+        arguments: ['%shakaran_faq.entity.question.class%']
+
+    shakaran_faq.entity.category_repository:
+        class:     '%shakaran_faq.entity.category_repository.class%'
+        public: true
+        factory:   ['@doctrine.orm.entity_manager', getRepository]
+        arguments: ['%shakaran_faq.entity.category.class%']
+
+    shakaran_faq.entity.search_repository:
+        class:     '%shakaran_faq.entity.search_repository.class%'
+        public: true
+        factory:   ['@doctrine.orm.entity_manager', getRepository]
+        arguments: ['%shakaran_faq.entity.search.class%']

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Set some basic project information and targets -->
-<project name="GenjFaqBundle" default="build">
+<project name="ShakaranFaqBundle" default="build">
     <property name="dir.src" value="${project.basedir}/src" />
 
     <target name="build" depends="prepare, lint, composer, phpunit, phpcs, phpdoc, pdepend, phpcb, phpcpd, phploc, phpmd"/>

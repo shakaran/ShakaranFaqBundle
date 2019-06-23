@@ -1,6 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\Controller;
+namespace Shakaran\FaqBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class SearchController
  *
- * @package Genj\FaqBundle\Controller
+ * @package Shakaran\FaqBundle\Controller
  */
 class SearchController extends Controller
 {
@@ -28,7 +28,7 @@ class SearchController extends Controller
 
         // if we have a slug - there was a search before
         if ($slug) {
-            /** @var \Genj\FaqBundle\Entity\Search $search */
+            /** @var \Shakaran\FaqBundle\Entity\Search $search */
             $search = $this->getSearchRepository()->findOneBySlug($slug);
         }
 
@@ -37,20 +37,20 @@ class SearchController extends Controller
 
             // is my query a plain number?
             // than redirect there right away
-            /** @var \Genj\FaqBundle\Entity\Question $question */
+            /** @var \Shakaran\FaqBundle\Entity\Question $question */
             $question = $this->getQuestionRepository()->findOneById($query);
 
             if ($question) {
                 return $this->redirectToRoute($question->getRouteName(), $question->getRouteParameters());
             }
 
-            /** @var \Genj\FaqBundle\Entity\Search $search */
+            /** @var \Shakaran\FaqBundle\Entity\Search $search */
             $search = $this->getSearchRepository()->findOneByHeadline($query);
         }
 
         // and if we don't have anything yet - we start from scratch
         if (!$search and $query != '') {
-            /** @var \Genj\FaqBundle\Entity\Search $search */
+            /** @var \Shakaran\FaqBundle\Entity\Search $search */
             $className = $this->getSearchRepository()->getClassName();
             $search    = new $className();
             $search->setHeadline($query);
@@ -67,7 +67,7 @@ class SearchController extends Controller
         }
 
         return $this->render(
-            'GenjFaqBundle:Search:show.html.twig',
+            'ShakaranFaqBundle:Search:show.html.twig',
             array(
                 'query'  => $query,
                 'search' => $search
@@ -87,7 +87,7 @@ class SearchController extends Controller
         $queries = $this->getSearchRepository()->retrieveMostPopular($max);
 
         return $this->render(
-            'GenjFaqBundle:Search:list_most_popular.html.twig',
+            'ShakaranFaqBundle:Search:list_most_popular.html.twig',
             array(
                 'queries' => $queries,
                 'max'     => $max
@@ -96,18 +96,18 @@ class SearchController extends Controller
     }
 
     /**
-     * @return \Genj\FaqBundle\Entity\QuestionRepository
+     * @return \Shakaran\FaqBundle\Entity\QuestionRepository
      */
     protected function getQuestionRepository()
     {
-        return $this->container->get('genj_faq.entity.question_repository');
+        return $this->container->get('shakaran_faq.entity.question_repository');
     }
 
     /**
-     * @return \Genj\FaqBundle\Entity\SearchRepository
+     * @return \Shakaran\FaqBundle\Entity\SearchRepository
      */
     protected function getSearchRepository()
     {
-        return $this->container->get('genj_faq.entity.search_repository');
+        return $this->container->get('shakaran_faq.entity.search_repository');
     }
 }

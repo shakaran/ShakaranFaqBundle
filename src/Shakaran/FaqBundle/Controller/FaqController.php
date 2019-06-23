@@ -1,13 +1,13 @@
 <?php
 
-namespace Genj\FaqBundle\Controller;
+namespace Shakaran\FaqBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * Class FaqController
  *
- * @package Genj\FaqBundle\Controller
+ * @package Shakaran\FaqBundle\Controller
  */
 class FaqController extends Controller
 {
@@ -46,7 +46,7 @@ class FaqController extends Controller
         }
 
         return $this->render(
-            'GenjFaqBundle:Faq:index.html.twig',
+            'ShakaranFaqBundle:Faq:index.html.twig',
             array(
                 'categories'       => $categories,
                 'questions'        => $questions,
@@ -68,11 +68,11 @@ class FaqController extends Controller
     protected function generateRedirectToDefaultSelection($categorySlug, $questionSlug)
     {
         $doRedirect = false;
-        $config     = $this->container->getParameter('genj_faq');
+        $config     = $this->container->getParameter('shakaran_faq');
 
         if (!$categorySlug && $config['select_first_category_by_default']) {
             $firstCategory = $this->getCategoryRepository()->retrieveFirst();
-            if ($firstCategory instanceof \Genj\FaqBundle\Entity\Category) {
+            if ($firstCategory instanceof \Shakaran\FaqBundle\Entity\Category) {
                 $categorySlug = $firstCategory->getSlug();
                 $doRedirect   = true;
             } else {
@@ -82,7 +82,7 @@ class FaqController extends Controller
 
         if (!$questionSlug && $config['select_first_question_by_default']) {
             $firstQuestion = $this->getQuestionRepository()->retrieveFirstByCategorySlug($categorySlug);
-            if ($firstQuestion instanceof \Genj\FaqBundle\Entity\Question) {
+            if ($firstQuestion instanceof \Shakaran\FaqBundle\Entity\Question) {
                 $questionSlug = $firstQuestion->getSlug();
                 $doRedirect   = true;
             } else {
@@ -92,7 +92,7 @@ class FaqController extends Controller
 
         if ($doRedirect) {
             return $this->redirect(
-                $this->generateUrl('genj_faq_faq_index', array('categorySlug' => $categorySlug, 'questionSlug' => $questionSlug), true)
+                $this->generateUrl('shakaran_faq_faq_index', array('categorySlug' => $categorySlug, 'questionSlug' => $questionSlug), true)
             );
         }
 
@@ -102,7 +102,7 @@ class FaqController extends Controller
     /**
      * @param string $questionSlug
      *
-     * @return \Genj\FaqBundle\Entity\Question
+     * @return \Shakaran\FaqBundle\Entity\Question
      */
     protected function getSelectedQuestion($questionSlug = null)
     {
@@ -118,7 +118,7 @@ class FaqController extends Controller
     /**
      * @param string $categorySlug
      *
-     * @return \Genj\FaqBundle\Entity\Category
+     * @return \Shakaran\FaqBundle\Entity\Category
      */
     protected function getSelectedCategory($categorySlug = null)
     {
@@ -132,18 +132,18 @@ class FaqController extends Controller
     }
 
     /**
-     * @return \Genj\FaqBundle\Entity\QuestionRepository
+     * @return \Shakaran\FaqBundle\Entity\QuestionRepository
      */
     protected function getQuestionRepository()
     {
-        return $this->container->get('genj_faq.entity.question_repository');
+        return $this->container->get('shakaran_faq.entity.question_repository');
     }
 
     /**
-     * @return \Genj\FaqBundle\Entity\CategoryRepository
+     * @return \Shakaran\FaqBundle\Entity\CategoryRepository
      */
     protected function getCategoryRepository()
     {
-        return $this->container->get('genj_faq.entity.category_repository');
+        return $this->container->get('shakaran_faq.entity.category_repository');
     }
 }

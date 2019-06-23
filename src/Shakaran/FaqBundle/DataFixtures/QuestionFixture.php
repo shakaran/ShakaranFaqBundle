@@ -1,20 +1,20 @@
 <?php
 
-namespace Genj\FaqBundle\DataFixtures;
+namespace Shakaran\FaqBundle\DataFixtures;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Genj\FaqBundle\Entity\Question;
+use Shakaran\FaqBundle\Entity\Question;
 
 /**
- * Class GenjFaqQuestionFixture
+ * Class QuestionFixture
  *
- * @package Genj\FaqBundle\Tests\Fixtures
+ * @package Shakaran\FaqBundle\Tests\Fixtures
  */
-class GenjFaqQuestionFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class QuestionFixture extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * @var ContainerInterface
@@ -35,21 +35,23 @@ class GenjFaqQuestionFixture extends AbstractFixture implements OrderedFixtureIn
     public function load(ObjectManager $manager)
     {
         $data = array(
-            'category-service' => array(
+            'category-subscription' => array(
                 'How can I get a subscription?',
                 'When will my subscription renew?',
                 'When will I receive the bill for my subscription?',
                 'How do I cancel my subscription?',
-                'This question exists in both categories',
+                'This question exists in both categories'
+            ),
+            'category-website' => array(
                 'I lost my password',
                 'I cannot log in to the website',
                 'I have a cool idea for the website',
-                'This question exists in both categories',
                 'This question exists in both categories'
             )
         );
 
         $rank = 0;
+
         foreach ($data as $category => $questions) {
             foreach ($questions as $questionText) {
                 $question = new Question();
@@ -57,13 +59,16 @@ class GenjFaqQuestionFixture extends AbstractFixture implements OrderedFixtureIn
                 $question->setBody('The answer to the question "' . $questionText . '".');
                 $question->setRank($rank);
                 $question->setCategory($this->getReference($category));
+                $question->setIsActive(true);
+                $question->setPublishAt(new \DateTime(date('Y-m-d H:i:s', (time() - rand(1, 200)))));
 
                 $manager->persist($question);
-                $manager->flush();
 
                 $rank++;
             }
         }
+
+        $manager->flush();
     }
 
     /**

@@ -1,13 +1,13 @@
 <?php
 
-namespace Genj\FaqBundle\Entity;
+namespace Shakaran\FaqBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
 /**
  * Class QuestionRepository
  *
- * @package Genj\FaqBundle\Entity
+ * @package Shakaran\FaqBundle\Entity
  */
 class QuestionRepository extends EntityRepository
 {

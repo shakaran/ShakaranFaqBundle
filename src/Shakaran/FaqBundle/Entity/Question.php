@@ -1,6 +1,6 @@
 <?php
 
-namespace Genj\FaqBundle\Entity;
+namespace Shakaran\FaqBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,10 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Question
  *
  * @ORM\MappedSuperclass
- * @ORM\Entity(repositoryClass="Genj\FaqBundle\Entity\QuestionRepository")
- * @ORM\Table(name="genj_faq_question")
+ * @ORM\Entity(repositoryClass="Shakaran\FaqBundle\Entity\QuestionRepository")
+ * @ORM\Table(name="shakaran_faq_question")
  *
- * @package Genj\FaqBundle\Entity
+ * @package Shakaran\FaqBundle\Entity
  */
 class Question
 {
@@ -359,7 +359,7 @@ class Question
      */
     public function getRouteName()
     {
-        return 'genj_faq_question_show';
+        return 'shakaran_faq_question_show';
     }
 
     /**
@@ -382,6 +382,6 @@ class Question
      */
     public function getEntityIdentifier()
     {
-        return 'GenjFaqBundle:Question:' . $this->getId();
+        return 'ShakaranFaqBundle:Question:' . $this->getId();
     }
 }
