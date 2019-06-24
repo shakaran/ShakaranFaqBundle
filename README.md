@@ -12,6 +12,17 @@ It allows you to display a FAQ on your website, with the questions being grouped
 * Collapsed mode generates SEO friendly URLs
 * Contains very simple mysql search - if you need it more advanced use elasticsearch
 
+## Migration from GenjFaqBundle in your code
+
+Execute the following commands if you are in a GNU/Linux terminal for easy and quick replacement
+in your code:
+
+```
+grep -rl GenjFaqBundle src | xargs sed -i 's$GenjFaqBundle$ShakaranFaqBundle$g'
+grep -rl GenjFaqBundle config | xargs sed -i 's$GenjFaqBundle$ShakaranFaqBundle$g'
+grep -rl Genj src | xargs sed -i 's$Genj$Shakaran$g'
+grep -rl Genj config | xargs sed -i 's$Genj$Shakaran$g'
+```
 
 ## Requirements
 
