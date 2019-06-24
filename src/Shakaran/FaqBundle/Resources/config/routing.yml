@@ -1,17 +1,17 @@
 shakaran_faq_search_show:
     path: /faq/search/{slug}
     defaults:
-        _controller: ShakaranFaqBundle:Search:show
+        _controller: ShakaranFaqBundle:Search:showAction
         slug: null
 
 shakaran_faq_faq_index:
     path: /faq/{categorySlug}/{questionSlug}
     defaults:
-        _controller: ShakaranFaqBundle:Faq:index
+        _controller: ShakaranFaqBundle:Faq:indexAction
         categorySlug: null
         questionSlug: null
 
 shakaran_faq_question_show:
     path: /faq/{categorySlug}/{slug}
     defaults:
-        _controller: ShakaranFaqBundle:Question:show
+        _controller: ShakaranFaqBundle:Question:showAction
