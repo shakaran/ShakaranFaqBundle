@@ -2,14 +2,14 @@
 
 namespace Shakaran\FaqBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class FaqController
  *
  * @package Shakaran\FaqBundle\Controller
  */
-class FaqController extends Controller
+class FaqController extends AbstractController
 {
     /**
      * Default index.

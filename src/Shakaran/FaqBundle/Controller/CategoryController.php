@@ -2,14 +2,14 @@
 
 namespace Shakaran\FaqBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class CategoryController
  *
  * @package Shakaran\FaqBundle\Controller
  */
-class CategoryController extends Controller
+class CategoryController extends AbstractController
 {
     /**
      * shows questions within 1 category
